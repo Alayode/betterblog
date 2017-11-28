@@ -24,7 +24,7 @@
 <div id="timeline" *ngFor="let post of posts; let i = index">
 
   <div class="user-styles">twitter-clone User {{post.user}}</div>
-  <div class="user-timestamp">{{post.ts}}</div>
+  <div class="user-timestamp">{{post.ts | date : shortTime}}</div>
   <div class="user-avatar"></div>
   <div class="combined-shape-copy">
    <p class="twitter-comment">{{post.message}}</p>
