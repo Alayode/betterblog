@@ -1,11 +1,56 @@
-.jumbotron {
-  margin-top: 20px;
+#timeline {
+  margin: 1em auto;
 }
 
-.jumbotron hr {
-  border-color: #999;
+.post {
+  padding: 7px;
+  margin-bottom: 7px;
 }
 
-.instructions {
-  float: none;
+.post q {
+  display: block;
+}
+
+#new_post {
+  padding: 7px;
+}
+.default {
+  width: 634px;
+  height: 914px;
+  background-color: #ffffff;
+}
+
+.combined-shape-copy {
+  width: 480px;
+  height: 52px;
+  border-radius: 7px;
+  background-color: #f6f6f6;
+}
+
+.twitter-comment {
+  width: 438px;
+  height: 42px;
+  font-family: Roboto;
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: left;
+  color: #092828;
+}
+
+.user-styles {
+  width: 143px;
+  height: 13px;
+  font-family: Roboto;
+  font-size: 11px;
+  text-align: left;
+  color: #092828;
+}
+
+.user-avatar {
+  width: 58px;
+  height: 50px;
+  background-color: yellow;
+  float: left;
+  /*margin-left: 15px;*/
+  margin-right: 38px;
 }
