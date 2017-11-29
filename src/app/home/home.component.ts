@@ -58,7 +58,12 @@ export class HomeComponent implements OnInit {
   public users = USERS;
   public posts = POSTS;
 
-  constructor() { }
+  public baratunde = '/assets/baratunde.jpg'
+  public conanOBrien = '/assets/ConanOBrien.jpg'
+  public marymeeker = '/assets/marymeeker.jpg'
+
+  constructor() {
+  }
 
   ngOnInit() {
     console.log(this.users);
