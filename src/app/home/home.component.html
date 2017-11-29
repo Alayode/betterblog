@@ -23,7 +23,15 @@
 
 <div id="timeline" *ngFor="let post of posts; let i = index">
 
-  <div class="user-styles">twitter-clone User {{post.user}}</div>
+  <template [ngIf]="post.user === 1">
+    <div class="user-styles">{{users[1].real_name}} - @{{users[1].real_name}}</div>
+  </template>
+  <template [ngIf]="post.user === 2">
+    <div class="user-styles">{{users[2].real_name}} - @{{users[2].username}}</div>
+  </template>
+  <template [ngIf]="post.user === 3">
+    <div class="user-styles">{{users[3].real_name}} - @{{users[3].username}}</div>
+  </template>
   <div class="user-timestamp">{{post.ts | date: shortTime}}</div>
   <template [ngIf]="post.user === 1"><div class="user-avatar"><img [src]="marymeeker"></div></template>
   <template [ngIf]="post.user === 2"><div class="user-avatar"><img [src]="conanOBrien"></div></template>

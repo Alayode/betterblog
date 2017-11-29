@@ -48,8 +48,8 @@
 }
 
 .user-avatar {
-  width: 58px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   background-color: yellow;
   float: left;
   /*margin-left: 15px;*/
@@ -62,4 +62,18 @@
   color: #092828;
   font-size: 11px;
   text-align: right;
+}
+
+img {
+  width: 48px;
+  height: 48px;
+}
+
+.verified-user-copy {
+  width: 14px;
+  height: 14px;
+  font-family: MaterialIcons;
+  font-size: 14px;
+  text-align: center;
+  color: #092828;
 }
