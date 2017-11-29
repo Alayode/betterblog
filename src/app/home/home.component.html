@@ -25,7 +25,11 @@
 
   <div class="user-styles">twitter-clone User {{post.user}}</div>
   <div class="user-timestamp">{{post.ts | date: shortTime}}</div>
-  <div class="user-avatar"></div>
+  <template [ngIf]="post.user === 1"><div class="user-avatar"><img [src]="marymeeker"></div></template>
+  <template [ngIf]="post.user === 2"><div class="user-avatar"><img [src]="conanOBrien"></div></template>
+  <template [ngIf]="post.user === 3"><div class="user-avatar"><img [src]="baratunde"></div></template>
+
+
   <div class="combined-shape-copy">
    <p class="twitter-comment">{{post.message}}</p>
   </div>
