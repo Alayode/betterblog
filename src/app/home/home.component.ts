@@ -18,6 +18,14 @@ export const USERS = {
   }
 };
 
+export const newMessages = {
+  id: 9999999999,
+  user: 3,
+  reply_to: 9999999999,
+  message: 'Love this shot. Reminds me of the first time someone found me at the end of a rainbow holding a pot of gold.',
+  ts: 1478942943
+}
+
 export const POSTS = [
   {
     id: 2374237842,
@@ -55,8 +63,14 @@ export const POSTS = [
 })
 export class HomeComponent implements OnInit {
 
+  public newPosts = [];
   public users = USERS;
   public posts = POSTS;
+  public newMsg = newMessages;
+
+  public currentUser = 5;
+  public currentTimeStamp =  Date.now();
+
 
   public baratunde = '/assets/baratunde.jpg'
   public conanOBrien = '/assets/ConanOBrien.jpg'
@@ -67,6 +81,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.users);
+    this.currentTimeStamp;
+    this.newMsg.ts = this.currentTimeStamp;
+    this.newPosts = [];
+    this.newMsg.message = '';
 
 
     // for (var i = 0; i < posts.length; i++) {
@@ -82,5 +100,12 @@ export class HomeComponent implements OnInit {
 
 
   }
+
+  add() {
+    this.newMsg.message = 'newMessage!';
+    this.newPosts.push(this.newMsg);
+
+  }
+
 
 }
