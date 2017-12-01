@@ -102,6 +102,7 @@ export class HomeComponent implements OnInit {
   }
 
   add() {
+    this.baratunde;
     this.newMsg.message = 'newMessage!';
     this.newPosts.push(this.newMsg);
 
