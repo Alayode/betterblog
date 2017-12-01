@@ -72,26 +72,26 @@ export class HomeComponent implements OnInit {
   public newPosts = [];
   public users = USERS;
   public posts = POSTS;
-  public newMsg = {};
+  public newMsg = newMessages;
   public comment : string;
   public currentUser = 5;
   public currentTimeStamp =  Date.now();
-
+  public emptyPostObject;
 
   public baratunde = '/assets/baratunde.jpg'
   public conanOBrien = '/assets/ConanOBrien.jpg'
   public marymeeker = '/assets/marymeeker.jpg'
 
-  public emptyPostObject: UserMessage;
+
 
   constructor() {
+
   }
 
   ngOnInit() {
     console.log(this.users);
     this.currentTimeStamp;
     this.newPosts = [];
-    this.emptyPostObject;
 
 
 
@@ -108,10 +108,8 @@ export class HomeComponent implements OnInit {
 
 
   }
-add(){
-
-  if(this.emptyPostObject) {
-    this.emptyPostObject;
+add(comment:string) {
+    // this.emptyPostObject;
     // add(comment: string) {
     // comment = comment.trim();
     // if (comment.length <= 0) { return; }
@@ -121,11 +119,13 @@ add(){
     // this.emptyPostObject.reply_to = 9999999999;
     // this.emptyPostObject.ts = this.currentTimeStamp;
     // this.emptyPostObject.message = comment;
-    this.newPosts.push(this.emptyPostObject);
-    this.baratunde;
-    console.log(this.newPosts);
-
-  }
+   if(comment.length > 0) {
+     this.newMsg.message = comment;
+     this.newPosts.push(this.newMsg);
+     this.baratunde;
+     console.log(this.newPosts);
+     console.log(this.newMsg);
+   }
   }
 
 
