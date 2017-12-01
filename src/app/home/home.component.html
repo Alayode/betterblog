@@ -50,16 +50,18 @@
   <div class="current-user-avatar"><img [src]="baratunde"></div>
   <div class="combined-shape-reply">
     <!--<div class="user-timestamp">{{newPost.ts | date: shortTime}}</div>-->
-    <div class="current-user-timestamp"><p>Today</p></div>
+    <!--<div class="current-user-timestamp"><p>{{newPost.ts | date: full}}</p></div>-->
     <!--<p class="user-reply-bubble" *ngFor="let newPost of newPosts;">-->
     <!--{{newPost.message}}</p>-->
-  <p class="user-reply-bubble"> New Message</p>
+  <!--<p class="user-reply-bubble">{{newPost.message}}</p>-->
   </div>
 </div>
 
 <!-- This is the input form line -->
 <hr class="line">
 <md-form-field  class="as-type-the-number">
-  <input required minLength = 1 name="new_post_text" mdInput>
+  <input #comment mdInput>
+  <!--<input #comment required minLength = 1 name="new_post_text" mdInput>-->
 </md-form-field>
 <span class="send-button" (click)="add()"><i class="material-icons">send</i></span>
+<!--<span class="send-button" (click)="add(comment.value); comment.value='' "><i class="material-icons">send</i></span>-->

@@ -54,7 +54,13 @@ export const POSTS = [
   }
 ];
 
-
+interface UserMessage {
+  id: number;
+  user: number;
+  reply_to: number;
+  message: string;
+  ts: number;
+}
 
 @Component({
   selector: 'app-home',
@@ -66,8 +72,8 @@ export class HomeComponent implements OnInit {
   public newPosts = [];
   public users = USERS;
   public posts = POSTS;
-  public newMsg = newMessages;
-
+  public newMsg = {};
+  public comment : string;
   public currentUser = 5;
   public currentTimeStamp =  Date.now();
 
@@ -76,15 +82,17 @@ export class HomeComponent implements OnInit {
   public conanOBrien = '/assets/ConanOBrien.jpg'
   public marymeeker = '/assets/marymeeker.jpg'
 
+  public emptyPostObject: UserMessage;
+
   constructor() {
   }
 
   ngOnInit() {
     console.log(this.users);
     this.currentTimeStamp;
-    this.newMsg.ts = this.currentTimeStamp;
     this.newPosts = [];
-    this.newMsg.message = '';
+    this.emptyPostObject;
+
 
 
     // for (var i = 0; i < posts.length; i++) {
@@ -100,12 +108,24 @@ export class HomeComponent implements OnInit {
 
 
   }
+add(){
 
-  add() {
+  if(this.emptyPostObject) {
+    this.emptyPostObject;
+    // add(comment: string) {
+    // comment = comment.trim();
+    // if (comment.length <= 0) { return; }
+    // console.log(comment);
+    // this.emptyPostObject.id = 9999999999;
+    // this.emptyPostObject.user = 3;
+    // this.emptyPostObject.reply_to = 9999999999;
+    // this.emptyPostObject.ts = this.currentTimeStamp;
+    // this.emptyPostObject.message = comment;
+    this.newPosts.push(this.emptyPostObject);
     this.baratunde;
-    this.newMsg.message = 'newMessage!';
-    this.newPosts.push(this.newMsg);
+    console.log(this.newPosts);
 
+  }
   }
 
 
