@@ -81,6 +81,7 @@ export class HomeComponent implements OnInit {
   public baratunde = '/assets/baratunde.jpg'
   public conanOBrien = '/assets/ConanOBrien.jpg'
   public marymeeker = '/assets/marymeeker.jpg'
+  public better = '/assets/better-icon.svg'
 
 
 
