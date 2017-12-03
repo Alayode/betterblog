@@ -1,80 +1,58 @@
-<!--<div class="jumbotron">-->
-  <!--<div class="text-center">-->
-    <!--<img src="/assets/img/logo-color-long.png" alt="" class="img-responsive">-->
-    <!--<h2>Angular CLI Heroku Deployment Demo</h2>-->
-    <!--<button class="btn btn-primary" routerLink="/subroute">Go To Another Route</button>-->
-    <!--<hr>-->
-    <!--<h3>To deploy an Angular 2 app with the Angular CLI to Heroku:</h3>-->
-  <!--</div>-->
-  <!--<div class="col-sm-6 col-sm-offset-3 instructions">-->
-    <!--<ul>-->
-      <!--<li>Create a Heroku account</li>-->
-      <!--<li>Install the Heroku CLI</li>-->
-      <!--<li>Create a Heroku app in your project directory with <code>heroku create</code></li>-->
-      <!--<li>Move the <code>angular-cli</code> dependency from <code>devDependencies</code> to <code>dependencies</code> in your <code>package.json</code></li>-->
-      <!--<li>Create a <code>postinstall</code> <code>script</code> in your <code>package.json</code> which builds your project to a <code>dist</code> directory on your server: <code>ng build &#45;&#45;aot -prod</code></li>-->
-      <!--<li>Install express: <code>npm install express &#45;&#45;save</code></li>-->
-      <!--<li>Create a <code>server.js</code> file in the root of your project and add code to serve the static files in your <code>dist</code> directory</li>-->
-      <!--<li>Commit your work and push it to Heroku to deploy: <code>git push heroku master</code></li>-->
-    <!--</ul>-->
-  <!--</div>-->
-<!--</div>-->
-<!--<div *ngFor="let post in posts">-->
 
-<div id="timeline" *ngFor="let post of posts; let i = index">
-
-  <template [ngIf]="post.user === 1">
-    <div class="user-styles">{{users[1].real_name}} - @{{users[1].real_name}}</div>
-  </template>
-  <template [ngIf]="post.user === 2">
-    <div class="user-styles">{{users[2].real_name}} - @{{users[2].username}}</div>
-  </template>
-  <template [ngIf]="post.user === 3">
-    <div class="user-styles">{{users[3].real_name}} - @{{users[3].username}}</div>
-  </template>
-  <div class="user-timestamp">{{post.ts | date: shortTime}}</div>
-  <template [ngIf]="post.user === 1"><div class="user-avatar"><img [src]="marymeeker"></div></template>
-  <template [ngIf]="post.user === 2"><div class="user-avatar"><img class="circle"[src]="conanOBrien"></div></template>
-  <template [ngIf]="post.user === 3"><div class="user-avatar"><img [src]="baratunde"></div></template>
-
-
-  <div class="combined-shape-copy">
-   <p class="twitter-comment">{{post.message}}</p>
-  </div>
-</div>
-
-
-<!-- Logged In user-->
-
-<div id="new_post" *ngFor="let newPost of newPosts; let i = index">
-  <div class="current-user-avatar"><img [src]="better"></div>
-  <div class="combined-shape-reply">
-    <div class="current-user-timestamp"><p>{{newPost.ts | date: full}}</p></div>
-  <div class="message-padding">
-    <p class="user-reply-bubble" *ngFor="let newPost of newPosts;">
-      {{newPost.message}}</p>
-  </div>
-
-  </div>
-</div>
-
-<!-- This is the input form line -->
-<hr class="line">
-<div class="message-box">
-  <div class="character-counter">
-    <input class="char-color"
-           [(ngModel)]="charsRemaining"
-           [ngClass]="{red:isNegative()}" mdInput>
-  </div>
-  <div class="form-field"> <md-form-field  class="as-type-the-number">
-    <input (keyup)="onKey($event, comment.value)"
-      #comment mdInput>
-    <!--<input #comment required minLength = 1 name="new_post_text" mdInput>-->
-  </md-form-field></div>
-  <div class="send-section"><span [attr.disabled]="disabled? '':null " id="send-button" (click)="add(comment.value); comment.value='' "><i class="material-icons">send</i></span></div>
-  <!--<span class="send-button" (click)="add()"><i class="material-icons">send</i></span>-->
-</div>
-
-
-
-
+  <div id="timeline" *ngFor="let post of posts; let i = index">
+    
+      <template [ngIf]="post.user === 1">
+        <div class="user-styles">{{users[1].real_name}} - @{{users[1].real_name}}</div>
+      </template>
+      <template [ngIf]="post.user === 2">
+        <div class="user-styles">{{users[2].real_name}} - @{{users[2].username}}</div>
+      </template>
+      <template [ngIf]="post.user === 3">
+        <div class="user-styles">{{users[3].real_name}} - @{{users[3].username}}</div>
+      </template>
+      <div class="user-timestamp">{{post.ts | date: shortTime}}</div>
+      <template [ngIf]="post.user === 1"><div class="user-avatar"><img [src]="marymeeker"></div></template>
+      <template [ngIf]="post.user === 2"><div class="user-avatar"><img class="circle"[src]="conanOBrien"></div></template>
+      <template [ngIf]="post.user === 3"><div class="user-avatar"><img [src]="baratunde"></div></template>
+    
+    
+      <div class="combined-shape-copy">
+       <p class="twitter-comment">{{post.message}}</p>
+      </div>
+    </div>
+    
+    
+    <!-- Logged In user-->
+    
+    <div id="new_post" *ngFor="let newPost of newPosts; let i = index">
+      <div class="current-user-avatar"><img [src]="better"></div>
+      <div class="combined-shape-reply">
+        <div class="current-user-timestamp"><p>{{newPost.ts | date: full}}</p></div>
+      <div class="message-padding"><p>
+          {{newPost.message}}</p>
+      </div>
+    
+      </div>
+    </div>
+    
+    <!-- This is the input form line -->
+    <hr class="line">
+    <div class="message-box">
+      <div class="character-counter">
+        <input class="char-color"
+               [(ngModel)]="charsRemaining"
+               [ngClass]="{red:isNegative()}" mdInput>
+      </div>
+      <div class="form-field"> <md-form-field  class="as-type-the-number">
+        <input (keyup)="onKey($event, comment.value)"
+          #comment mdInput>
+        <!--<input #comment required minLength = 1 name="new_post_text" mdInput>-->
+      </md-form-field></div>
+      <div class="send-section"><span [attr.disabled]="disabled? '':null " id="send-button" (click)="add(comment.value); comment.value='' "><i class="material-icons">send</i></span></div>
+      <!--<span class="send-button" (click)="add()"><i class="material-icons">send</i></span>-->
+    </div>
+    
+    
+    
+    
+    

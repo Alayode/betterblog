@@ -60,6 +60,7 @@ interface UserMessage {
   reply_to: number;
   message: string;
   ts: number;
+  current_id;
 }
 
 @Component({
@@ -78,12 +79,13 @@ export class HomeComponent implements OnInit {
   public newPosts = [];
   public users = USERS;
   public posts = POSTS;
-  public newMsg = newMessages;
-  public comment : string;
-  public currentUser = 5;
-  public currentTimeStamp =  Date.now();
+  public newMsg : UserMessage;
+  // public comment : string;
+  // public reply_to_user : number;
+  // public user : string;
+  // public currentUser = 5;
+  // public currentTimeStamp =  Date.now();
   public emptyPostObject;
-
   public baratunde = '/assets/baratunde.jpg'
   public conanOBrien = '/assets/ConanOBrien.jpg'
   public marymeeker = '/assets/marymeeker.jpg'
@@ -96,13 +98,15 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newPosts = [];
+
     this.numberOfInputs = 0;
     this.charLimit = 100;
     this.charsRemaining;
 
     console.log(this.users);
-    this.currentTimeStamp;
-    this.newPosts = [];
+
+
 
 
 
@@ -118,17 +122,46 @@ export class HomeComponent implements OnInit {
     // }
 
 
+
+    // id: 9999999999,
+    //   user: 3,
+    //   reply_to: 9999999999,
+    //   message: 'Love this shot. Reminds me of the first time someone found me at the end of a rainbow holding a pot of gold.',
+    //   ts: 1478942943
+
+
   }
+
+//   interface UserMessage {
+//   id: number;
+//   user: number;
+//   reply_to: number;
+//   message: string;
+//   ts: number;
+//   current_id;
+// }
+
 add(comment:string) {
+
+// I know there is a cleaner way of doing this my apologies.
+var newObjectMessage = {
+  id: 0,
+  user: 0,
+  reply_to: 0,
+  message: '',
+  ts: 0
+};
   var checkMessageString = comment.length;
   console.log(checkMessageString);
    if(checkMessageString !== 0 && checkMessageString < 100) {
-     this.newMsg.message = comment;
-     this.newMsg.ts = Date.now();
-     this.newPosts.push(this.newMsg);
-     this.baratunde;
+     newObjectMessage.id = 51132131231;
+     newObjectMessage.user =  7;
+     newObjectMessage.reply_to = 3;
+     newObjectMessage.message = comment;
+     newObjectMessage.ts = Date.now();
+     this.newPosts.push(newObjectMessage);
      console.log(this.newPosts);
-     console.log(this.newMsg);
+     console.log(newObjectMessage);
    } else {
         console.log("Empty messages or messages over 100 Chars are not allowed!!!")
    }
