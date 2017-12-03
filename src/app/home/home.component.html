@@ -50,8 +50,7 @@
   <div class="current-user-avatar"><img [src]="better"></div>
   <div class="combined-shape-reply">
     <div class="current-user-timestamp"><p>{{newPost.ts | date: full}}</p></div>
-  <div class="message-padding">
-    <p class="user-reply-bubble" *ngFor="let newPost of newPosts;">
+  <div class="message-padding"><p>
       {{newPost.message}}</p>
   </div>
 
