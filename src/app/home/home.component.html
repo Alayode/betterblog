@@ -61,9 +61,12 @@
 <!-- This is the input form line -->
 <hr class="line">
 <div class="message-box">
-  <div class="character-counter"><span>100</span></div>
+  <div class="character-counter">
+    <span>{{charsRemaining}}</span>
+  </div>
   <div class="form-field"> <md-form-field  class="as-type-the-number">
-    <input #comment mdInput>
+    <input (keyup)="onKey($event, comment.value)"
+      #comment mdInput>
     <!--<input #comment required minLength = 1 name="new_post_text" mdInput>-->
   </md-form-field></div>
   <div class="send-section"><span id="send-button" (click)="add(comment.value); comment.value='' "><i class="material-icons">send</i></span></div>

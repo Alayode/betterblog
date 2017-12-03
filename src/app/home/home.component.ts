@@ -69,6 +69,11 @@ interface UserMessage {
 })
 export class HomeComponent implements OnInit {
 
+  values = '';
+  public numberOfInputs: number;
+  public charLimit: number;
+  public charsRemaining: number;
+
   public newPosts = [];
   public users = USERS;
   public posts = POSTS;
@@ -90,6 +95,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.numberOfInputs = 0;
+    this.charLimit = 100;
+    this.charsRemaining;
+
     console.log(this.users);
     this.currentTimeStamp;
     this.newPosts = [];
@@ -130,4 +139,16 @@ add(comment:string) {
   }
 
 
+
+  onKey(event, value) {
+    console.log(value.length);
+    console.log(event);
+    console.log( this.charsRemaining );
+   if(value){
+     let numberOfInputs = value.length;
+     this.charsRemaining = (this.charLimit - this.numberOfInputs);
+   }
+    return;
+    // this.values += event.target.value;
+  }
 }
