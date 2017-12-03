@@ -49,10 +49,12 @@
 <div id="new_post" *ngFor="let newPost of newPosts; let i = index">
   <div class="current-user-avatar"><img [src]="baratunde"></div>
   <div class="combined-shape-reply">
-    <div class="user-timestamp">{{newPost.ts | date: shortTime}}</div>
     <div class="current-user-timestamp"><p>{{newPost.ts | date: full}}</p></div>
+  <div class="message-padding">
     <p class="user-reply-bubble" *ngFor="let newPost of newPosts;">
-    {{newPost.message}}</p>
+      {{newPost.message}}</p>
+  </div>
+
   </div>
 </div>
 
