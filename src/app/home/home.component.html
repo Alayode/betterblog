@@ -62,17 +62,19 @@
 <hr class="line">
 <div class="message-box">
   <div class="character-counter">
-    <span>{{charsRemaining}}</span>
+    <input class="char-color"
+           [(ngModel)]="charsRemaining"
+           [ngClass]="{red:isNegative()}" mdInput>
   </div>
   <div class="form-field"> <md-form-field  class="as-type-the-number">
     <input (keyup)="onKey($event, comment.value)"
       #comment mdInput>
     <!--<input #comment required minLength = 1 name="new_post_text" mdInput>-->
   </md-form-field></div>
-  <div class="send-section"><span id="send-button" (click)="add(comment.value); comment.value='' "><i class="material-icons">send</i></span></div>
+  <div class="send-section"><span [attr.disabled]="disabled? '':null " id="send-button" (click)="add(comment.value); comment.value='' "><i class="material-icons">send</i></span></div>
   <!--<span class="send-button" (click)="add()"><i class="material-icons">send</i></span>-->
 </div>
 
 
 
-<!---->
+

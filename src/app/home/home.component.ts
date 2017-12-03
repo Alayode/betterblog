@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 export const USERS = {
   '1': {
@@ -69,10 +69,11 @@ interface UserMessage {
 })
 export class HomeComponent implements OnInit {
 
+  @Input() charsRemaining;
+
   values = '';
   public numberOfInputs: number;
   public charLimit: number;
-  public charsRemaining: number;
 
   public newPosts = [];
   public users = USERS;
@@ -119,36 +120,40 @@ export class HomeComponent implements OnInit {
 
   }
 add(comment:string) {
-    // this.emptyPostObject;
-    // add(comment: string) {
-    // comment = comment.trim();
-    // if (comment.length <= 0) { return; }
-    // console.log(comment);
-    // this.emptyPostObject.id = 9999999999;
-    // this.emptyPostObject.user = 3;
-    // this.emptyPostObject.reply_to = 9999999999;
-    // this.emptyPostObject.ts = this.currentTimeStamp;
-    // this.emptyPostObject.message = comment;
-   if(comment.length > 0) {
+  var checkMessageString = comment.length;
+  console.log(checkMessageString);
+   if(checkMessageString !== 0 && checkMessageString < 100) {
      this.newMsg.message = comment;
+     this.newMsg.ts = Date.now();
      this.newPosts.push(this.newMsg);
      this.baratunde;
      console.log(this.newPosts);
      console.log(this.newMsg);
+   } else {
+        console.log("Empty messages or messages over 100 Chars are not allowed!!!")
    }
   }
 
 
 
   onKey(event, value) {
-    console.log(value.length);
-    console.log(event);
-    console.log( this.charsRemaining );
-   if(value){
-     let numberOfInputs = value.length;
-     this.charsRemaining = (this.charLimit - this.numberOfInputs);
-   }
+    // console.log(event);
+    // console.log(value.length);
+    var numberOfInputs = value.length;
+    this.charsRemaining =  this.charLimit - numberOfInputs;
+    // console.log( this.charsRemaining);
+  console.log(this.isNegative());
+    this.isNegative();
     return;
-    // this.values += event.target.value;
   }
+
+  isNegative() {
+    var isNegNum = this.charsRemaining;
+    if(isNegNum <= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
